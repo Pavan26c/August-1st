@@ -10,7 +10,7 @@
 
         body {
             background-color: #ffe6ea; 
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Dancing Script', cursive; 
             text-align: center;
             overflow: hidden; 
             margin: 0;
@@ -19,17 +19,15 @@
             align-items: center;
             height: 100vh;
             user-select: none; 
-            position: relative; /* Added to keep containers perfectly stacked */
+            position: relative; 
         }
 
-        /* Both containers are stacked perfectly on top of each other */
         .content-container {
             padding: 20px;
-            max-width: 400px;
+            max-width: 450px; 
             z-index: 10;
             position: absolute; 
             width: 100%;
-            /* This controls the speed and feel of the animation */
             transition: opacity 0.8s ease-in-out, transform 0.8s ease-in-out;
         }
 
@@ -40,7 +38,6 @@
             pointer-events: auto;
         }
 
-        /* When unlocked, the lock screen fades out and zooms toward the camera */
         body.unlocked #lock-screen {
             opacity: 0;
             transform: scale(1.15); 
@@ -50,33 +47,30 @@
         /* --- MAIN CONTENT ANIMATION STATES --- */
         #main-content {
             opacity: 0;
-            transform: scale(0.9); /* Starts slightly zoomed out in the background */
+            transform: scale(0.9); 
             pointer-events: none; 
         }
 
-        /* When unlocked, the main content fades in and scales to normal size */
         body.unlocked #main-content {
             opacity: 1;
             transform: scale(1);
             pointer-events: auto;
         }
 
-
         /* Text & Button Styling */
         h1 {
             color: #d6336c; 
             margin-bottom: 10px;
+            font-size: 52px; 
         }
 
         #lock-screen h1 {
-            font-family: 'Dancing Script', cursive;
             font-size: 64px; 
             margin-top: 0;
             margin-bottom: 5px;
         }
 
         .hint-text {
-            font-family: 'Dancing Script', cursive;
             font-size: 32px; 
             color: #d6336c;
             margin-top: 0;
@@ -85,8 +79,8 @@
 
         p {
             color: #555;
-            font-size: 18px;
-            line-height: 1.5;
+            font-size: 26px; 
+            line-height: 1.4;
         }
 
         input[type="password"] {
@@ -119,6 +113,7 @@
             background-color: rgba(255, 255, 255, 0.6);
             border: 2px solid #ffb3c1;
             font-size: 28px;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             color: #d6336c;
             cursor: pointer;
             display: flex;
@@ -143,7 +138,7 @@
         #error-message {
             display: none;
             color: #ff4d4d;
-            font-size: 14px;
+            font-size: 22px;
             font-weight: bold;
             margin-top: 10px;
         }
@@ -152,7 +147,36 @@
             display: none;
             margin-top: 20px;
             font-weight: bold;
-            color: #ff4d4d;
+            color: #d6336c; 
+            font-size: 26px; 
+        }
+
+        /* --- UPDATED DIGITAL GIFTS SECTION --- */
+        #gift-links {
+            display: none; /* Handled by JavaScript */
+            margin-top: 25px;
+            justify-content: center;
+            gap: 10px; /* Space between buttons */
+            flex-wrap: wrap; /* Keeps them from breaking on super small screens */
+        }
+
+        .gift-btn {
+            background-color: #ffe6ea;
+            color: #d6336c;
+            border: 2px solid #d6336c;
+            padding: 8px 16px; /* Slightly smaller padding to fit side-by-side */
+            border-radius: 20px;
+            font-size: 22px; /* Adjusted size for side-by-side fit */
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s;
+            flex: 1; /* Makes both buttons take up equal space */
+            white-space: nowrap; /* Prevents text from stacking awkwardly */
+        }
+
+        .gift-btn:hover {
+            background-color: #d6336c;
+            color: white;
         }
 
         .unlock-btn {
@@ -161,7 +185,8 @@
             border: none;
             padding: 12px 30px;
             border-radius: 25px;
-            font-size: 18px;
+            font-family: 'Dancing Script', cursive; 
+            font-size: 28px; 
             font-weight: bold;
             cursor: pointer;
             transition: background-color 0.3s;
@@ -190,7 +215,7 @@
     <!-- LOCK SCREEN SECTION -->
     <div class="content-container" id="lock-screen">
         <h1>Heyy beautiful</h1>
-        <p class="hint-text">our anniversary date (ddmm)</p>
+        <p class="hint-text">our anniversary date (dd/mm)</p>
         
         <input type="password" id="passcode-input" readonly>
         
@@ -218,17 +243,24 @@
     <!-- MAIN CONTENT SECTION -->
     <div class="content-container" id="main-content">
         <h1>Happy Girlfriend's Day! ❤️</h1>
-        <p>To the most amazing person in the world...</p>
+        <p>To my beautiful lovely girlfriendd...</p>
         
-        <button class="unlock-btn" onclick="revealMessage()">I have something to tell you</button>
+        <button id="reveal-btn" class="unlock-btn" onclick="revealMessage()">There is more to this</button>
         
-        <p id="secret-message">I love you more than words can say! Thank you for making every single day so incredibly special.</p>
+        <p id="secret-message">I love you soo much my love. Ever since you became my girlfriend, the life has been soo beautiful. I am loving everything with you. Your love, your fights, your hugs, kisses and many more you are my everything. Thank you soo sooo much for standing up and confessing your feelings without that happening i dont thing we could have come thing longg in this beautiful realtionship. I am soo greatful to be your boyfriend. Thank you for making every single day so incredibly special with you. looking forward to spend many more years with you! and celebrate many more girlfriend's days together! I LOVE YOU SOOO MUCH MY LEKHANAA </p>
+        
+        <!-- DIGITAL GIFTS SECTION -->
+        <div id="gift-links">
+            <a href="YOUR_BOUQUET_LINK_HERE" class="gift-btn" target="_blank">💐 Open Bouquet</a>
+            <a href="YOUR_CASSETTE_LINK_HERE" class="gift-btn" target="_blank">📼 Play Cassette</a>
+        </div>
+
     </div>
 
     <!-- JavaScript -->
     <script>
         // --- CUSTOMIZE YOUR PASSCODE HERE ---
-        const correctPasscode = "0101"; 
+        const correctPasscode = "1206"; 
 
         let currentPin = "";
         let heartInterval; 
@@ -251,11 +283,9 @@
             const errorMessage = document.getElementById('error-message');
             
             if (currentPin === correctPasscode) {
-                // This single line triggers the smooth CSS animation
                 document.body.classList.add('unlocked');
                 errorMessage.style.display = 'none';
                 
-                // Wait for the fade animation to finish (800ms) before starting the hearts
                 setTimeout(() => {
                     heartInterval = setInterval(createHeart, 300);
                 }, 800);
@@ -268,6 +298,11 @@
 
         function revealMessage() {
             document.getElementById('secret-message').style.display = 'block';
+            
+            // Changed this to 'flex' so the buttons sit side-by-side!
+            document.getElementById('gift-links').style.display = 'flex'; 
+            
+            document.getElementById('reveal-btn').style.display = 'none';
         }
 
         function createHeart() {
